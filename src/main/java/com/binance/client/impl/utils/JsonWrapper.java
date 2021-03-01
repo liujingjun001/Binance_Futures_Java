@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 import com.binance.client.exception.BinanceApiException;
+
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,7 @@ public class JsonWrapper {
     public static JsonWrapper parseFromString(String text) {
         try {
             JSONObject jsonObject;
-            if(JSON.parse(text) instanceof JSONArray) {
+            if (JSON.parse(text) instanceof JSONArray) {
                 jsonObject = (JSONObject) JSON.parse("{data:" + text + "}");
             } else {
                 jsonObject = (JSONObject) JSON.parse(text);
@@ -87,12 +88,13 @@ public class JsonWrapper {
     }
 
     public int getInteger(String name) {
-        checkMandatoryField(name);
+//        checkMandatoryField(name);
         try {
             return json.getInteger(name);
         } catch (Exception e) {
-            throw new BinanceApiException(BinanceApiException.RUNTIME_ERROR,
-                    "[Json] Get integer error: " + name + " " + e.getMessage());
+//            throw new BinanceApiException(BinanceApiException.RUNTIME_ERROR,
+//                    "[Json] Get integer error: " + name + " " + e.getMessage());
+            return Integer.MIN_VALUE;
         }
     }
 
@@ -109,12 +111,13 @@ public class JsonWrapper {
     }
 
     public long getLong(String name) {
-        checkMandatoryField(name);
+//        checkMandatoryField(name);
         try {
             return json.getLong(name);
         } catch (Exception e) {
-            throw new BinanceApiException(BinanceApiException.RUNTIME_ERROR,
-                    "[Json] Get long error: " + name + " " + e.getMessage());
+            return Long.MIN_VALUE;
+//            throw new BinanceApiException(BinanceApiException.RUNTIME_ERROR,
+//                    "[Json] Get long error: " + name + " " + e.getMessage());
         }
     }
 
@@ -129,6 +132,7 @@ public class JsonWrapper {
                     "[Json] Get long error: " + name + " " + e.getMessage());
         }
     }
+
     public Double getDouble(String name) {
         checkMandatoryField(name);
         try {
