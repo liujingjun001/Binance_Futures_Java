@@ -43,10 +43,10 @@ public class JsonWrapper {
     }
 
     private void checkMandatoryField(String name) {
-        if (!json.containsKey(name)) {
-            throw new BinanceApiException(BinanceApiException.RUNTIME_ERROR,
-                    "[Json] Get json item field: " + name + " does not exist");
-        }
+//        if (!json.containsKey(name)) {
+//            throw new BinanceApiException(BinanceApiException.RUNTIME_ERROR,
+//                    "[Json] Get json item field: " + name + " does not exist");
+//        }
     }
 
     public boolean containKey(String name) {
@@ -160,8 +160,10 @@ public class JsonWrapper {
         try {
             return new BigDecimal(json.getBigDecimal(name).stripTrailingZeros().toPlainString());
         } catch (Exception e) {
-            throw new BinanceApiException(BinanceApiException.RUNTIME_ERROR,
-                    "[Json] Get decimal error: " + name + " " + e.getMessage());
+//            throw new BinanceApiException(BinanceApiException.RUNTIME_ERROR,
+//                    "[Json] Get decimal error: " + name + " " + e.getMessage());
+            System.out.println(e);
+            return BigDecimal.ZERO;
         }
     }
 
