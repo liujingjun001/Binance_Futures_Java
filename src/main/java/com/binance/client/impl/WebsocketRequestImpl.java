@@ -480,10 +480,10 @@ class WebsocketRequestImpl {
                 datalist.forEach(item -> {
                     PositionUpdate position = new PositionUpdate();
                     position.setSymbol(item.getString("s"));
-                    position.setAmount(item.getBigDecimal("pa"));
-                    position.setEntryPrice(item.getBigDecimal("ep"));
-                    position.setPreFee(item.getBigDecimal("cr"));
-                    position.setUnrealizedPnl(item.getBigDecimal("up"));
+//                    position.setAmount(item.getBigDecimal("pa"));
+//                    position.setEntryPrice(item.getBigDecimal("ep"));
+//                    position.setPreFee(item.getBigDecimal("cr"));
+//                    position.setUnrealizedPnl(item.getBigDecimal("up"));
                     positionList.add(position);
                 });
                 accountUpdate.setPositions(positionList);
