@@ -7,6 +7,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.binance.client.exception.BinanceApiException;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -162,7 +163,7 @@ public class JsonWrapper {
         } catch (Exception e) {
 //            throw new BinanceApiException(BinanceApiException.RUNTIME_ERROR,
 //                    "[Json] Get decimal error: " + name + " " + e.getMessage());
-            System.out.println(e);
+            System.out.println(name + ", " + Arrays.toString(e.getStackTrace()));
             return BigDecimal.ZERO;
         }
     }
