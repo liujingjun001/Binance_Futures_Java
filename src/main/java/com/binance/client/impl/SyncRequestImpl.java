@@ -219,4 +219,9 @@ public class SyncRequestImpl implements SyncRequestClient {
     public List<TakerLongShortStat> getTakerLongShortRatio(String symbol, PeriodType period, Long startTime, Long endTime, Integer limit) {
         return RestApiInvoker.callSync(requestImpl.getTakerLongShortRatio(symbol, period, startTime, endTime, limit));
     }
+
+    @Override
+    public List<KLine> getKlines(String symbol, IntervalType interval, long startTime, long endTime, int limit) {
+        return RestApiInvoker.callSync(requestImpl.getKline(symbol, interval, startTime, endTime, limit));
+    }
 }
