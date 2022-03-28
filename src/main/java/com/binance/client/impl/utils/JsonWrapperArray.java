@@ -16,6 +16,10 @@ public class JsonWrapperArray {
         this.array = array;
     }
 
+    public int size() {
+        return array.size();
+    }
+
     public JsonWrapper getJsonObjectAt(int index) {
         if (array != null && array.size() > index) {
             JSONObject object = (JSONObject) array.get(index);

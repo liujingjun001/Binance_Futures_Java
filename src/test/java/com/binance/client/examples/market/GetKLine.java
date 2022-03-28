@@ -18,35 +18,35 @@ import java.util.Map;
  */
 public class GetKLine {
     public static void main(String[] args) {
-        RequestOptions options = new RequestOptions();
-        SyncRequestClient syncRequestClient = SyncRequestClient.create(PrivateConfig.API_KEY, PrivateConfig.SECRET_KEY,
-                options);
-//        System.out.println((System.currentTimeMillis() / 1000 / 60 - 1) * 60 * 1000);
-        System.out.println(syncRequestClient.getKlines("BTCUSDT", IntervalType.MINUTE, 1648480320000L, 1648480433000L, 10));
+//        RequestOptions options = new RequestOptions();
+//        SyncRequestClient syncRequestClient = SyncRequestClient.create(PrivateConfig.API_KEY, PrivateConfig.SECRET_KEY,
+//                options);
+////        System.out.println((System.currentTimeMillis() / 1000 / 60 - 1) * 60 * 1000);
+//        System.out.println(syncRequestClient.getKlines("BTCUSDT", IntervalType.MINUTE, 1648480320000L, 1648480433000L, 10));
 
-//        String s = "[\n" +
-//                "    [\n" +
-//                "        1648451100000,\n" +
-//                "        \"46980.00000000\",\n" +
-//                "        \"46980.00000000\",\n" +
-//                "        \"46967.79000000\",\n" +
-//                "        \"46977.00000000\",\n" +
-//                "        \"17.17738000\",\n" +
-//                "        1648451159999,\n" +
-//                "        \"806885.52782420\",\n" +
-//                "        525,\n" +
-//                "        \"13.27026000\",\n" +
-//                "        \"623352.43104240\",\n" +
-//                "        \"0\"\n" +
-//                "    ]]";
-//        JSONArray array = JSONArray.parseArray(s);
-//        Iterator<Object> iterator = array.iterator();
-//        while (iterator.hasNext()) {
-//            Object next = iterator.next();
-//            JSONArray item = (JSONArray) (next);
-//            long startTime = item.getLongValue(0);
-//        }
-//        JsonWrapper jsonWrapper = JsonWrapper.parseFromString(s);
-//        List<Map<String, String>> maps = jsonWrapper.convert2DictList();
+        String s = "[\n" +
+                "    [\n" +
+                "        1648451100000,\n" +
+                "        \"46980.00000000\",\n" +
+                "        \"46980.00000000\",\n" +
+                "        \"46967.79000000\",\n" +
+                "        \"46977.00000000\",\n" +
+                "        \"17.17738000\",\n" +
+                "        1648451159999,\n" +
+                "        \"806885.52782420\",\n" +
+                "        525,\n" +
+                "        \"13.27026000\",\n" +
+                "        \"623352.43104240\",\n" +
+                "        \"0\"\n" +
+                "    ]]";
+        JSONArray array = JSONArray.parseArray(s);
+        Iterator<Object> iterator = array.iterator();
+        while (iterator.hasNext()) {
+            Object next = iterator.next();
+            JSONArray item = (JSONArray) (next);
+            long startTime = item.getLongValue(0);
+        }
+        JsonWrapper jsonWrapper = JsonWrapper.parseFromString(s);
+        List<Map<String, String>> maps = jsonWrapper.convert2DictList();
     }
 }

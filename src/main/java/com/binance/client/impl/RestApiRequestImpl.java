@@ -1344,19 +1344,20 @@ class RestApiRequestImpl {
         request.jsonParser = (jsonWrapper -> {
             List<KLine> result = new LinkedList<>();
             JsonWrapperArray jsonArray = jsonWrapper.getJsonArray("data");
-            jsonArray.forEach((item) -> {
-                JSONArray itemArray = JSONArray.parseArray(item.toString());
+            int size = jsonArray.size();
+            for (int i = 0; i < size; i++) {
+                JsonWrapperArray arrayAt = jsonArray.getArrayAt(i);
                 KLine kLine = new KLine();
-                kLine.setStartTime(itemArray.getLong(0));
-                kLine.setOpen(itemArray.getBigDecimal(1));
-                kLine.setHigh(itemArray.getBigDecimal(2));
-                kLine.setLow(itemArray.getBigDecimal(3));
-                kLine.setClose(itemArray.getBigDecimal(4));
-                kLine.setVolume(itemArray.getBigDecimal(5));
-                kLine.setEndTime(itemArray.getLongValue(6));
-                kLine.setVolumeUsdt(itemArray.getBigDecimal(7));
+                kLine.setStartTime(arrayAt.getLongAt(0));
+                kLine.setOpen(arrayAt.getBigDecimalAt(1));
+                kLine.setHigh(arrayAt.getBigDecimalAt(2));
+                kLine.setLow(arrayAt.getBigDecimalAt(3));
+                kLine.setClose(arrayAt.getBigDecimalAt(4));
+                kLine.setVolume(arrayAt.getBigDecimalAt(5));
+                kLine.setEndTime(arrayAt.getLongAt(6));
+                kLine.setVolumeUsdt(arrayAt.getBigDecimalAt(7));
                 result.add(kLine);
-            });
+            }
             return result;
         });
         return request;
