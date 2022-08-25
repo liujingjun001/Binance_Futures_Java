@@ -197,6 +197,7 @@ class RestApiRequestImpl {
                 symbol.setSymbol(item.getString("symbol"));
                 symbol.setStatus(item.getString("status"));
                 symbol.setMaintMarginPercent(item.getBigDecimal("maintMarginPercent"));
+                symbol.setOnboardDate(item.getLong("onboardDate"));
                 symbol.setRequiredMarginPercent(item.getBigDecimal("requiredMarginPercent"));
                 symbol.setBaseAsset(item.getString("baseAsset"));
                 symbol.setQuoteAsset(item.getString("quoteAsset"));

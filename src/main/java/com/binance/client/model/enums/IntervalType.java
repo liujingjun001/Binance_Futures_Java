@@ -7,8 +7,8 @@ package com.binance.client.model.enums;
 public enum IntervalType {
     MINUTE("1m"),
     HOUR("1h"),
-    DAY("1D"),
-    WEEK("1W"),
+    DAY("1d"),
+    WEEK("1w"),
     MONTH("1M"),
     ;
     String desc;

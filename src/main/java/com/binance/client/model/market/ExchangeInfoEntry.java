@@ -1,18 +1,16 @@
 package com.binance.client.model.market;
 
-import com.binance.client.constant.BinanceApiConstants;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
-
-import java.math.BigDecimal;
 
 public class ExchangeInfoEntry {
 
     private String symbol;
 
     private String status;
+
+    private Long onboardDate;
 
     private BigDecimal maintMarginPercent;
 
@@ -140,14 +138,31 @@ public class ExchangeInfoEntry {
         this.filters = filters;
     }
 
+    public Long getOnboardDate() {
+        return onboardDate;
+    }
+
+    public void setOnboardDate(Long onboardDate) {
+        this.onboardDate = onboardDate;
+    }
+
     @Override
     public String toString() {
-        return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE).append("symbol", symbol)
-                .append("status", status).append("maintMarginPercent", maintMarginPercent)
-                .append("requiredMarginPercent", requiredMarginPercent).append("baseAsset", baseAsset)
-                .append("quoteAsset", quoteAsset).append("pricePrecision", pricePrecision)
-                .append("quantityPrecision", quantityPrecision).append("baseAssetPrecision", baseAssetPrecision)
-                .append("quotePrecision", quotePrecision).append("orderTypes", orderTypes)
-                .append("timeInForce", timeInForce).append("filters", filters).toString();
+        return "ExchangeInfoEntry{" +
+                "symbol='" + symbol + '\'' +
+                ", status='" + status + '\'' +
+                ", onboardDate=" + onboardDate +
+                ", maintMarginPercent=" + maintMarginPercent +
+                ", requiredMarginPercent=" + requiredMarginPercent +
+                ", baseAsset='" + baseAsset + '\'' +
+                ", quoteAsset='" + quoteAsset + '\'' +
+                ", pricePrecision=" + pricePrecision +
+                ", quantityPrecision=" + quantityPrecision +
+                ", baseAssetPrecision=" + baseAssetPrecision +
+                ", quotePrecision=" + quotePrecision +
+                ", orderTypes=" + orderTypes +
+                ", timeInForce=" + timeInForce +
+                ", filters=" + filters +
+                '}';
     }
 }
