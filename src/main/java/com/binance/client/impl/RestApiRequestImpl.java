@@ -953,6 +953,7 @@ class RestApiRequestImpl {
                 element.setAsset(item.getString("asset"));
                 element.setBalance(item.getBigDecimal("balance"));
                 element.setWithdrawAvailable(item.getBigDecimal("withdrawAvailable"));
+                element.setAvailableBalance(item.getBigDecimal("availableBalance"));
                 result.add(element);
             });
             return result;

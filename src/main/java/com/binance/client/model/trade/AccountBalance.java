@@ -13,6 +13,16 @@ public class AccountBalance {
 
     private BigDecimal withdrawAvailable;
 
+    private BigDecimal availableBalance;
+
+    public BigDecimal getAvailableBalance() {
+        return availableBalance;
+    }
+
+    public void setAvailableBalance(BigDecimal availableBalance) {
+        this.availableBalance = availableBalance;
+    }
+
     public String getAsset() {
         return asset;
     }
