@@ -847,6 +847,7 @@ class RestApiRequestImpl {
 
         request.jsonParser = (jsonWrapper -> {
             Order result = new Order();
+            result.setAvgPrice(jsonWrapper.getBigDecimal("avgPrice"));
             result.setClientOrderId(jsonWrapper.getString("clientOrderId"));
             result.setCumQuote(jsonWrapper.getBigDecimal("cumQuote"));
             result.setExecutedQty(jsonWrapper.getBigDecimal("executedQty"));
